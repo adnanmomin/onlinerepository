@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Repository</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <h1 align="center">Online Repository</h1>
+    <hr>
+    <div id = "contents">
+        <div id="content-head">
+            <span>Contents</span>
+        </div>
+        <div class="content-body">
+            {% for file in files %}
+                <div class="file-body">
+                    <div class="file-name">
+                        {{ file.file_name }}<br>
+                        Size: {{ file.file_size}} KB
+                    </div>
+                    <div class="download-button">
+                        <a href="files/{{ file.upload_data }}">
+                            <img src="{% static 'images/downloadbutton.jpeg' %}"
+                                 id="{{ file.id }}" class="download">
+                        </a>
+                    </div>
+                </div>
+                <div class="vertical-divider">
+                    <img src="{% static 'images/verticaldivider.png' %}" width="20%">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="uploading-section">
+        <div id="upload-head">
+            <span>Upload Your File</span>
+        </div>
+        <hr>
+        <div id="upload-data">
+            <form method="post" action="" enctype="multipart/form-data"> {% csrf_token %}
+                <div class="form-head">
+                    Select File To Upload
+                </div>
+                <div id="form-body">
+                    {{ upload_form }}
+                </div>
+                <div id="submit-button">
+                    <button type="submit" class="submit">
+                        Upload File
+                    </button>
+                    <button type="reset" class="reset">
+                        Reset
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
