@@ -44,25 +44,7 @@ body {
 }
 .vertical-divider {
     float: left;
-}/*
-#file {
-    #background: #00ffff;
-    width: 100%;
-    height: 60px;
-    padding: 1px; #padding is to identify remove it later
 }
-#file_name{
-    #background: #123456;
-    width: 80%;
-    height: 100%;
-    float: left;
-}
-#download-button{
-    #background: #ffffff;
-    width: 20%;
-    height: 100%;
-    float: right;
-}*/
 #uploading-section {
     #background: #457896;
     width: 30%;
